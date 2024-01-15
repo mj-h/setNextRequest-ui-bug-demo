@@ -1,0 +1,19 @@
+meta {
+  name: Get 3
+  type: http
+  seq: 5
+}
+
+get {
+  url: https://jsonplaceholder.typicode.com/todos/3
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+}
+
+script:post-response {
+  bru.setNextRequest("Get 1");
+}
